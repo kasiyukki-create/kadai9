@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Hachi Maru Pop', cursive, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center; 
+}
+
+.header {
+    padding: 30px 10px; 
+    text-align: center;
+    background-color: #e0e0e0; 
+    color: #333;
+    font-weight: bold;
+    border-bottom: 5px solid #ccc; 
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px; 
+}
+
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #e0e0e0; 
+    color: #555;
+    font-size: 10px; 
+    border-top: 5px solid #ccc;
+}
+
+.container {
+    width: 1000px; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+.todo-wrapper {
+    display: flex;
+    gap: 10px; 
+    padding: 20px 0;
+    min-height: 550px; 
+    align-items: stretch;
+}
+
+.column {
+    padding: 20px;
+    border: 3px solid #dcdcdc; 
+    border-radius: 15px; 
+    box-sizing: border-box;
+    text-align: left; 
+    color: #333;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+    margin: 5px; 
+}
+
+.column h2 {
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.1); 
+}
+
+.column ul, .column ol {
+    line-height: 25px; 
+    padding-left: 30px; 
+}
+
+.today-schedule {
+    width: 200px; 
+    background-color: #fffacd; 
+    flex-shrink: 0;
+}
+
+.main-todo-list {
+    flex-grow: 1; 
+    background-color: #ffc0cb; 
+    min-width: 0;
+    width: 500px; 
+}
+
+.club-activity {
+    width: 250px; 
+    background-color: #b0e0e6; 
+    flex-shrink: 0;
+}
+
+.club-activity button {
+    margin-top: 20px;
+    padding: 15px 30px; 
+    background-color: #4682b4; 
+    color: white;
+    border: 1px solid #4682b4;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: none;
+}
+
+.club-activity button:hover {
+    background-color: #5f9ea0;
+    box-shadow: 0 0 10px #4682b4;
+}

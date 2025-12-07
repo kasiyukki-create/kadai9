@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TREE - 7日間限定の校内掲示板</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #4CAF50; color: white; padding: 15px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2em; }
+        .container { width: 90%; max-width: 800px; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        .info-box { background-color: #e8f5e9; border-left: 5px solid #4CAF50; padding: 10px 15px; margin-bottom: 20px; font-size: 0.9em; }
+        .new-thread-form textarea { width: 98%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .new-thread-form button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; }
+        .thread-list a { display: block; padding: 10px; border-bottom: 1px solid #eee; text-decoration: none; color: #333; transition: background-color 0.2s; }
+        .thread-list a:hover { background-color: #f0f0f0; }
+        .thread-title { font-weight: bold; font-size: 1.1em; }
+        .thread-meta { font-size: 0.8em; color: #777; margin-top: 4px; }
+        .thread-meta .time-limit { color: #D32F2F; font-weight: bold; }
+        .error-message { color: red; font-weight: bold; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌳 TREE 🌳</h1>
+        <p>7日間限定の校内限定掲示板</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="info-box">
+            📢 ルール:学校Wi-Fi接続時のみアクセス可能です。すべてのスレッドは7日後に自動消滅します。NGワードは即座にブロックされます。
+        </div>
+
+        <?php if (!empty($error_message)): ?>
+            <p class="error-message"><?php echo $error_message; ?></p>
+        <?php endif; ?>
+        
+        <h2>新しいスレッドを立てる</h2>
+        <div class="new-thread-form">
+            <form action="post.php" method="POST">
+                <textarea name="thread_content" placeholder="新しい話題（タイトルと本文）を入力してください。※個人情報や誹謗中傷は即時ブロックされます。" rows="4" required></textarea>
+                <button type="submit">スレッド作成 (匿名)</button>
+            </form>
+        </div>
+
+        <hr style="margin: 30px 0;">
+
+        <h2>現在進行中のスレッド一覧</h2>
+        <div class="thread-list">
+            <?php 
+                // DBから取得したスレッドデータをループ表示する想定
+                // 例: foreach ($threads as $thread) { ... }
+            ?>
+
+            <a href="thread_detail.php?id=1">
+                <div class="thread-title">明日の文化祭準備、手伝える人いる？</div>
+                <div class="thread-meta">
+                    レス数: 5件 | <span class="time-limit">残り: 3日 15時間で消滅</span>
+                </div>
+            </a>
+            
+        </div>
+        
+    </div>
+</body>
+</html>

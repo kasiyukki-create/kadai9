@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起きるのです</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1f2937;
+        }
+
+
+    @keyframes resist-shake{
+
+        0% {transform: translate(-1px, -2px) rotate(-1deg) scale(1.05);}
+        80%{ transform: translate(1px, -1px) rotate(-1deg) scale(1.1)}
+    
+    }
+    #b:hover {
+        animation: resist-shake 0.3s infinite alternate;
+        box-shadow: 0 0 30PX rgba(255, 60, 60, 0.8);
+    }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <a href="#" id="b"
+          class="
+          inline-flex items-center justify-center
+          py-6 px-10
+          text-x1 font-bold text-white
+          rounded-full
+          bg-red-700 shadow-x1 hover:bg-red-600
+          transition duration-100 ease-in-out
+          ">
+          起きて大学へいけ！
+        </a>    
+
+</body>
+</html>

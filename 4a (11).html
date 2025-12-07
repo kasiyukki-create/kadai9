@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-A リンクボタンを作る</title>
+    <!-- Tailwind CSSを読み込み、モダンなスタイリングを適用します --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* フォント設定を適用 */
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fce7f3; /* 優しいピンクの背景色に変更 */
+        }
+
+        /* 星形ボタンのスタイル */
+        .star-button {
+            clip-path: polygon(
+                50% 0%, 
+                61% 35%, 
+                98% 35%, 
+                68% 57%, 
+                79% 91%, 
+                50% 70%, 
+                21% 91%, 
+                32% 57%, 
+                2% 35%, 
+                39% 35%
+            );
+            border-radius: 0; /* clip-pathを使う場合はborderRadiusを無効化 */
+            padding: 1.5rem 3rem; /* paddingを大きく変更 */
+        }
+
+        /* 八角形ボタンのスタイル */
+        .octagon-button {
+            clip-path: polygon(
+                30% 0%, 
+                70% 0%, 
+                100% 30%, 
+                100% 70%, 
+                70% 100%, 
+                30% 100%, 
+                0% 70%, 
+                0% 30%
+            );
+            border-radius: 0; /* clip-pathを使う場合はborderRadiusを無効化 */
+            padding: 1.5rem 3rem; /* paddingを大きく変更 */
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <!-- ボタンを中央に配置するためのコンテナ --><div class="flex flex-col sm:flex-row gap-8 p-10 bg-white shadow-2xl rounded-2xl">
+        <!-- ピンクの星形ボタン --><a href="#" 
+           class="
+                /* btn-baseの役割 */
+                inline-flex items-center justify-center 
+                px-12 py-6 text-xl font-extrabold /* サイズとフォントの太さを変更 */
+                transition duration-300 ease-in-out 
+                shadow-lg hover:shadow-xl 
+                transform hover:-translate-y-1 
+                w-full sm:w-auto
+
+                /* pinkの役割 */
+                bg-pink-400 text-white 
+                hover:bg-pink-500 
+                ring-2 ring-pink-200 ring-offset-2
+
+                /* 星形を適用 */
+                star-button
+           ">
+            寝るｽﾔｧ
+        </a>
+
+        <!-- オレンジの八角形アウトラインボタン --><a href="#" 
+           class="
+                /* btn-baseの役割 */
+                inline-flex items-center justify-center 
+                px-12 py-6 text-xl font-extrabold /* サイズとフォントの太さを変更 */
+                transition duration-300 ease-in-out 
+                shadow-lg hover:shadow-xl 
+                transform hover:-translate-y-1 
+                w-full sm:w-auto
+
+                /* orange outlineの役割 */
+                bg-transparent border-2 border-orange-300 text-orange-500 
+                hover:bg-orange-50 hover:border-orange-400 
+                ring-2 ring-transparent hover:ring-orange-200 ring-offset-2
+
+                /* 八角形を適用 */
+                octagon-button
+           ">
+            起きて大学へいく！
+        </a>
+    </div>
+
+</body>
+</html>

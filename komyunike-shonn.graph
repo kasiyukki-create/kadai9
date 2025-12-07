@@ -1,0 +1,38 @@
+graph TD
+    subgraph Input (情報入力)
+        A[ユーザー] --> |1. 保険証券をスマホで撮影/QRコード読込| B(保険証券 画像/QRコード)
+        C(外部API) --> |2. リアルタイム災害情報 (震度, 浸水深, 警報)| D(災害情報データベース)
+    end
+
+    subgraph Processing (AIによる処理)
+        B --> E{AI-OCRによる文字認識}
+        E --> F[契約条項テキストデータ]
+        F --> G{NLPによる特約・除外条項の抽出・構造化}
+        G --> H[構造化された契約データ]
+
+        D --> I{AI判定ロジックによる照合}
+        H --> I
+        I --> J[支払可否の可能性評価]
+    end
+
+    subgraph Output (結果通知)
+        J --> K(ユーザーのスマホアプリ/Web通知)
+        K --> L[結果表示: <br>・支払可能性: 高 (例: 95%)<br>・判定理由: 〇〇特約に該当<br>・次の行動: 罹災証明書の準備]
+    end
+
+    style Input fill:#e0f2f7,stroke:#333,stroke-width:2px
+    style Processing fill:#fff3e0,stroke:#333,stroke-width:2px
+    style Output fill:#e8f5e9,stroke:#333,stroke-width:2px
+
+    style A fill:#cfd8dc,stroke:#333,stroke-width:1px
+    style B fill:#b3e5fc,stroke:#333,stroke-width:1px
+    style C fill:#cfd8dc,stroke:#333,stroke-width:1px
+    style D fill:#b3e5fc,stroke:#333,stroke-width:1px
+    style E fill:#a7d9f7,stroke:#333,stroke-width:1px
+    style F fill:#90caf9,stroke:#333,stroke-width:1px
+    style G fill:#64b5f6,stroke:#333,stroke-width:1px
+    style H fill:#42a5f5,stroke:#333,stroke-width:1px
+    style I fill:#2196f3,stroke:#333,stroke-width:1px
+    style J fill:#1976d2,stroke:#333,stroke-width:1px
+    style K fill:#e0f7fa,stroke:#333,stroke-width:1px
+    style L fill:#80cbc4,stroke:#333,stroke-width:1px
